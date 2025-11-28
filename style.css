@@ -346,37 +346,43 @@ section {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Content Grid Layouts */
+.content-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.content-grid-2col-wide {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 6rem;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .hero-content {
         grid-template-columns: 1fr;
         text-align: left;
-        /* Revert to left align */
         padding-right: 2rem;
-        /* Add some breathing room */
     }
 
     .hero-text p {
         margin-left: 0;
         margin-right: 0;
         max-width: 100%;
-        /* Allow full width */
     }
 
     .services-grid {
         grid-template-columns: 1fr;
         border: none;
-        /* Remove outer border on mobile for cleaner look */
         gap: 2rem;
-        /* Add space between cards instead of 1px grid */
         background-color: transparent;
     }
 
     .service-card {
         border: 1px solid var(--color-border);
-        /* Add individual borders */
         padding: 2.5rem 2rem;
-        /* Adjust padding */
     }
 
     .footer-grid {
@@ -387,9 +393,25 @@ section {
     .nav-list {
         display: none;
     }
+
+    /* Content grids to single column on tablets */
+    .content-grid-2col,
+    .content-grid-2col-wide {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
 }
 
 @media (max-width: 768px) {
+    /* Better container padding on mobile */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
     .header {
         padding: 1rem 0;
     }
@@ -398,7 +420,6 @@ section {
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: space-between;
-        /* Keep logo and button separated */
         padding: 0 1.5rem;
     }
 
@@ -416,9 +437,9 @@ section {
     }
 
     .hero {
-        padding-top: 160px;
-        /* Slightly less than 180 to keep it tight */
+        padding-top: 120px;
         align-items: flex-start;
+        min-height: 70vh !important;
     }
 
     .hero h1 {
@@ -426,12 +447,16 @@ section {
         margin-bottom: 1.5rem;
     }
 
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
     .hero-label {
         font-size: 0.75rem;
         margin-bottom: 1rem;
         display: inline-block;
         border-bottom: 1px solid var(--color-gold);
-        /* Add accent line to label */
         padding-bottom: 0.2rem;
     }
 
@@ -446,5 +471,21 @@ section {
     .service-card h3 {
         font-size: 1.3rem;
         margin-bottom: 1rem;
+    }
+
+    /* Mobile-specific content grid spacing */
+    .content-grid-2col,
+    .content-grid-2col-wide {
+        gap: 3rem;
+    }
+
+    /* Better spacing for headings on mobile */
+    h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
     }
 }
