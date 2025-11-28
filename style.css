@@ -1,0 +1,450 @@
+:root {
+    /* Premium Palette */
+    --color-bg: #050A14;
+    /* Darker, richer navy */
+    --color-bg-secondary: #0B1628;
+    /* Slightly lighter for sections */
+    --color-text: #E0E6ED;
+    /* Cool white */
+    --color-text-muted: #94A3B8;
+    --color-gold: #C6A87C;
+    /* Muted, elegant gold */
+    --color-gold-hover: #DEC59F;
+    --color-border: rgba(198, 168, 124, 0.15);
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1.5rem;
+    --spacing-md: 3rem;
+    --spacing-lg: 6rem;
+    --spacing-xl: 10rem;
+
+    --container-width: 1400px;
+    --border-radius: 2px;
+    /* Sharp, professional corners */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s ease;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Premium Components */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--color-gold);
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn:hover {
+    color: var(--color-bg);
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+.btn-text {
+    border: none;
+    padding: 0;
+    border-bottom: 1px solid var(--color-gold);
+}
+
+.btn-text:hover {
+    color: #fff;
+    border-color: #fff;
+    background: none;
+}
+
+.btn-text::after {
+    display: none;
+}
+
+/* Header */
+.header {
+    padding: 2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5, 10, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.nav-list {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-list a {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: var(--color-gold);
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(198, 168, 124, 0.08) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.hero-label {
+    display: block;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(20%) contrast(110%);
+    border-radius: 2px;
+    box-shadow: 20px 20px 0 rgba(198, 168, 124, 0.05);
+}
+
+/* Sections */
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.bg-secondary {
+    background-color: var(--color-bg-secondary);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+}
+
+.service-card {
+    background-color: var(--color-bg);
+    padding: 4rem 3rem;
+    transition: background-color 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    background-color: #0d1b30;
+}
+
+.service-icon {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-gold);
+}
+
+.service-link {
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+}
+
+.service-link::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.service-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* Footer */
+.footer {
+    padding: 5rem 0 2rem;
+    background-color: #020408;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-brand p {
+    max-width: 300px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-links h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--color-gold);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.2);
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: left;
+        /* Revert to left align */
+        padding-right: 2rem;
+        /* Add some breathing room */
+    }
+
+    .hero-text p {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        /* Allow full width */
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        border: none;
+        /* Remove outer border on mobile for cleaner look */
+        gap: 2rem;
+        /* Add space between cards instead of 1px grid */
+        background-color: transparent;
+    }
+
+    .service-card {
+        border: 1px solid var(--color-border);
+        /* Add individual borders */
+        padding: 2.5rem 2rem;
+        /* Adjust padding */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .nav-list {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 0;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        /* Keep logo and button separated */
+        padding: 0 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+
+    .btn-text {
+        font-size: 0.75rem;
+        white-space: nowrap;
+        border-bottom: 1px solid var(--color-gold);
+        display: inline-block;
+        line-height: 1.2;
+    }
+
+    .hero {
+        padding-top: 160px;
+        /* Slightly less than 180 to keep it tight */
+        align-items: flex-start;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-label {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+        border-bottom: 1px solid var(--color-gold);
+        /* Add accent line to label */
+        padding-bottom: 0.2rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .service-icon {
+        margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+}
