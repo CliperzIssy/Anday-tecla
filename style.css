@@ -373,6 +373,16 @@ section {
         max-width: 100%;
     }
 
+    .hero-image {
+        margin-top: 3rem;
+    }
+
+    .hero-image img {
+        max-width: 400px;
+        margin: 0 auto;
+        display: block;
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
         border: none;
@@ -458,6 +468,15 @@ section {
         display: inline-block;
         border-bottom: 1px solid var(--color-gold);
         padding-bottom: 0.2rem;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        width: 100%;
     }
 
     .service-card {
